@@ -5,7 +5,7 @@ const LandingNavbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1, type: "spring", stiffness: 300 }}
-      className="flex translate-y-7 items-center justify-between px-3 py-3 bg-navbar-pattern w-full bg-cyan-500 shadow-lg"
+      className="z-10 absolute top-0 w-full flex translate-y-7 items-center justify-between px-3 py-3 bg-navbar-pattern w-full bg-cyan-500 shadow-lg"
     >
       <motion.div
         initial={{ x: -200, rotate: 90 }}
@@ -31,7 +31,7 @@ const LandingNavbar = () => {
             type: "spring",
             stiffness: 300,
           }}
-          className="px-4 py-1 rounded-xl text-white text-lg font-bold border-2 border-white bg-transparent hover:bg-white hover:text-cyan-500"
+          className="transition-colors px-4 py-1 rounded-xl text-white text-lg font-bold border-2 border-white bg-transparent hover:bg-white hover:text-cyan-500"
         >
           Sign Up
         </motion.button>
@@ -44,7 +44,7 @@ const LandingNavbar = () => {
             type: "spring",
             stiffness: 300,
           }}
-          className="px-4 py-1 rounded-xl text-white text-lg font-bold border-2 border-white bg-transparent hover:bg-white hover:text-cyan-500"
+          className="transition-colors px-4 py-1 rounded-xl text-white text-lg font-bold border-2 border-white bg-transparent hover:bg-white hover:text-cyan-500"
         >
           Log In
         </motion.button>

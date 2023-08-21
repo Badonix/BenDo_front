@@ -7,3 +7,9 @@
 * {
   font-family: "Ubuntu", sans-serif;
 }
+
+body {
+  /* bird animation causing overflow-y on landing, temporary fix */
+  overflow: hidden;
+  background-color: rgb(226, 225, 223);
+}
