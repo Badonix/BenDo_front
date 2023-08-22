@@ -11,5 +11,8 @@
 body {
   /* bird animation causing overflow-y on landing, temporary fix */
   overflow: hidden;
+  /* background-image: radial-gradient(#999 5%, transparent 0);
+  background-size: 35px 35px; */
+  /* DOTTED BACKGROUND ? DO I NEED IT */
   background-color: rgb(226, 225, 223);
 }
