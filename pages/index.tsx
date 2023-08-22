@@ -1,8 +1,18 @@
-import { LandingNavbar } from "@/components";
-import { motion } from "framer-motion";
+import { LandingNavbar, LoginModal, SignupModal } from "@/components";
+import { ModalContext } from "@/context";
+import { AnimatePresence, motion } from "framer-motion";
+import { useContext } from "react";
 export default function Home() {
+  const { openModal } = useContext(ModalContext);
+
   return (
     <main className="h-screen">
+      <AnimatePresence>
+        {openModal === "login" && <LoginModal />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {openModal === "signup" && <SignupModal />}
+      </AnimatePresence>
       <LandingNavbar />
       <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3">
         <div className="flex items-center gap-3 flex-wrap text-center justify-center">
@@ -62,7 +72,7 @@ export default function Home() {
           duration: 1,
         }}
         src="/assets/fat_bird.png"
-        className="absolute right-0 bottom-0 -z-10"
+        className="sm:block hidden absolute right-0 bottom-0 -z-10"
       />
       <motion.img
         initial={{ x: -500 }}
