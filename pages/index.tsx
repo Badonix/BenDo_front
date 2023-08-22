@@ -1,4 +1,9 @@
-import { LandingNavbar, LoginModal, SignupModal } from "@/components";
+import {
+  LandingNavbar,
+  LoginModal,
+  SignupModal,
+  SignupSecondModal,
+} from "@/components";
 import { ModalContext } from "@/context";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
@@ -12,6 +17,9 @@ export default function Home() {
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup" && <SignupModal />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {openModal === "signup2" && <SignupSecondModal />}
       </AnimatePresence>
       <LandingNavbar />
       <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3">

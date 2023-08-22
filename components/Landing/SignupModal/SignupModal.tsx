@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useModal } from "@/hooks";
 export const SignupModal = () => {
-  const { wrapperRef } = useModal();
+  const { wrapperRef, setOpenModal } = useModal();
   return (
     <>
       <motion.div
@@ -30,7 +30,7 @@ export const SignupModal = () => {
               <span className="text-cyan-500 font-bold">People</span>
             </p>
           </div>
-          <form className="flex flex-col gap-4 w-full">
+          <form className="flex flex-col sm:gap-4 gap-2 w-full">
             <div className="flex flex-col gap-1">
               <label className="text-lg font-bold">First Name</label>
               <input
@@ -79,7 +79,11 @@ export const SignupModal = () => {
                 placeholder="********"
               />
             </div>
-            <button className="bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors">
+            <button
+              type="button"
+              onClick={() => setOpenModal("signup2")}
+              className="bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
+            >
               Next
             </button>
           </form>

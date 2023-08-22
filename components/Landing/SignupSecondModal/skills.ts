@@ -1,0 +1,25 @@
+export const ProffessionData = [
+  { value: "Frontend Developer", label: "Frontend Developer" },
+  { value: "Backend Developer", label: "Backend Developer" },
+  { value: "Fullstack Developer", label: "Fullstack Developer" },
+  { label: "Mobile Developer", value: "Mobile Developer" },
+  { value: "Data Scientist", label: "Data Scientist" },
+  { value: "Game Developer", label: "Game Developer" },
+  { value: "Devops Engineer", label: "Devops Engineer" },
+];
+export const SkillsData = [
+  { value: "Javascript", label: "Javascript" },
+  { value: "Python", label: "Python" },
+  { value: "PHP", label: "PHP" },
+  { value: "C++", label: "C++" },
+  { value: "C#", label: "C#" },
+  { value: "C", label: "C" },
+  { value: "Java", label: "Java" },
+  { value: "Rust", label: "Rust" },
+  { value: "Go", label: "Go" },
+  { value: "Ruby", label: "Ruby" },
+  { value: "Swift", label: "Swift" },
+  { value: "Dart", label: "Dart" },
+  { value: "Haskell", label: "Haskell" },
+  { value: "ASM", label: "ASM" },
+];

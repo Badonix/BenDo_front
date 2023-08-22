@@ -1,0 +1,1 @@
+export {default as SignupSecondModal} from "./SignupSecondModal"
