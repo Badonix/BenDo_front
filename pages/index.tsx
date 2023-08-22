@@ -4,6 +4,7 @@ import {
   SignupModal,
   SignupSecondModal,
 } from "@/components";
+import { SignupThirdModal } from "@/components/Landing/SignupThirdModal";
 import { ModalContext } from "@/context";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
@@ -20,6 +21,9 @@ export default function Home() {
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup2" && <SignupSecondModal />}
+      </AnimatePresence>{" "}
+      <AnimatePresence>
+        {openModal === "signup3" && <SignupThirdModal />}
       </AnimatePresence>
       <LandingNavbar />
       <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3">

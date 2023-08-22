@@ -1,14 +1,8 @@
-import { motion } from "framer-motion";
 import { useModal } from "@/hooks";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
-import { ProffessionData, SkillsData } from "./skills";
-import { useSecondSignup } from "./useSecondSignup";
-export const SignupSecondModal = () => {
-  const { wrapperRef } = useModal();
-  const animatedComponents = makeAnimated();
-  const { setOpenModal } = useModal();
-  const { customStyles } = useSecondSignup();
+import { motion } from "framer-motion";
+
+export const SignupThirdModal = () => {
+  const { wrapperRef, setOpenModal } = useModal();
   return (
     <>
       <motion.div
@@ -28,34 +22,29 @@ export const SignupSecondModal = () => {
         >
           <div className="flex flex-col gap-2 ">
             <div className="absolute top-5 left-6">
-              <p>2/3</p>
+              <p>3/3</p>
             </div>
-            <h2 className="text-3xl font-bold text-center">Skills</h2>
-            <p className="text-center">
-              Tell us about your{" "}
-              <span className="text-cyan-500 font-bold"> Skills</span>
-            </p>
+            <h2 className="text-3xl font-bold text-center">Last thing...</h2>
+            <p className="text-center">Don't worry, you are almost there</p>
           </div>
           <form className="flex flex-col sm:gap-4 gap-2 w-full">
-            <div>
-              <label>Profession</label>
-              <Select
-                components={animatedComponents}
-                options={ProffessionData}
-                isMulti
-                closeMenuOnSelect={true}
-                styles={customStyles}
+            <div className="w-full relative flex flex-col gap-3 items-center justify-center">
+              <input
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                className="hidden"
+                id="pfp"
               />
-            </div>
-            <div>
-              <label>Languages</label>
-              <Select
-                components={animatedComponents}
-                options={SkillsData}
-                isMulti
-                closeMenuOnSelect={true}
-                styles={customStyles}
+              <img
+                className="rounded-full w-36 h-36 object-cover"
+                src="/assets/default.png"
               />
+              <label
+                htmlFor="pfp"
+                className="cursor-pointer hover:bg-cyan-600 transition-colors bg-cyan-500 text-white py-2 rounded-lg font-bold px-3"
+              >
+                Upload Image
+              </label>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -66,11 +55,10 @@ export const SignupSecondModal = () => {
                 Back
               </button>
               <button
-                onClick={() => setOpenModal("signup3")}
                 type="button"
                 className="w-full shadow-lg bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
               >
-                Next
+                Finish
               </button>
             </div>
           </form>
@@ -80,4 +68,4 @@ export const SignupSecondModal = () => {
   );
 };
 
-export default SignupSecondModal;
+export default SignupThirdModal;
