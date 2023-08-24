@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
-import { useModal } from "@/hooks";
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import { ProffessionData, SkillsData } from "./skills";
 import { useSecondSignup } from "./useSecondSignup";
-export const SignupSecondModal = () => {
-  const { wrapperRef } = useModal();
-  const animatedComponents = makeAnimated();
-  const { setOpenModal } = useModal();
-  const { customStyles } = useSecondSignup();
+export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
+  const {
+    handleSubmit,
+    onSubmit,
+    register,
+    customStyles,
+    animatedComponents,
+    wrapperRef,
+    setOpenModal,
+    setValue,
+    errors,
+  } = useSecondSignup();
   return (
     <>
       <motion.div
@@ -36,25 +41,54 @@ export const SignupSecondModal = () => {
               <span className="text-cyan-500 font-bold"> Skills</span>
             </p>
           </div>
-          <form className="flex flex-col sm:gap-4 gap-2 w-full">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col sm:gap-4 gap-2 w-full"
+          >
             <div>
-              <label>Profession</label>
+              <label className={errors["profession"] && "text-red-500"}>
+                Profession
+              </label>
               <Select
                 components={animatedComponents}
                 options={ProffessionData}
                 isMulti
                 closeMenuOnSelect={true}
                 styles={customStyles}
+                onChange={(e) => {
+                  let assembled: string[] = [];
+                  e.forEach((el: any) => assembled.push(el.value));
+                  setValue("profession", assembled);
+                }}
+              />
+              <input
+                type="hidden"
+                {...register("profession", {
+                  required: "Choose your profession",
+                })}
               />
             </div>
             <div>
-              <label>Languages</label>
+              <label className={errors["languages"] && "text-red-500"}>
+                Languages
+              </label>
               <Select
                 components={animatedComponents}
                 options={SkillsData}
                 isMulti
                 closeMenuOnSelect={true}
                 styles={customStyles}
+                onChange={(e) => {
+                  let assembled: string[] = [];
+                  e.forEach((el: any) => assembled.push(el.value));
+                  setValue("languages", assembled);
+                }}
+              />
+              <input
+                type="hidden"
+                {...register("languages", {
+                  required: "Choose languages you know",
+                })}
               />
             </div>
             <div className="flex items-center gap-2">
@@ -66,8 +100,7 @@ export const SignupSecondModal = () => {
                 Back
               </button>
               <button
-                onClick={() => setOpenModal("signup3")}
-                type="button"
+                type="submit"
                 className="w-full shadow-lg bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
               >
                 Next

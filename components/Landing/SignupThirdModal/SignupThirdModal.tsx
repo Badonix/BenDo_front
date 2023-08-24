@@ -1,8 +1,11 @@
 import { useModal } from "@/hooks";
 import { motion } from "framer-motion";
+import { useThirdSignup } from "./useThirdSignup";
 
-export const SignupThirdModal = () => {
+export const SignupThirdModal = ({ signupData, setSignupData }: any) => {
   const { wrapperRef, setOpenModal } = useModal();
+  const { register, onSubmit, handleSubmit, errors, preview } =
+    useThirdSignup();
   return (
     <>
       <motion.div
@@ -27,17 +30,23 @@ export const SignupThirdModal = () => {
             <h2 className="text-3xl font-bold text-center">Last thing...</h2>
             <p className="text-center">Don't worry, you are almost there</p>
           </div>
-          <form className="flex flex-col sm:gap-4 gap-2 w-full">
+          <form
+            className="flex flex-col sm:gap-4 gap-2 w-full"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className="w-full relative flex flex-col gap-3 items-center justify-center">
               <input
                 type="file"
                 accept=".png, .jpg, .jpeg"
                 className="hidden"
                 id="pfp"
+                {...register("avatar", { required: "Avatar is required" })}
               />
               <img
-                className="rounded-full w-36 h-36 object-cover"
-                src="/assets/default.png"
+                className={`rounded-full w-36 h-36 border-4 transition-colors object-cover ${
+                  errors["avatar"] && " border-red-500"
+                }`}
+                src={preview || "/assets/default.png"}
               />
               <label
                 htmlFor="pfp"
@@ -55,7 +64,7 @@ export const SignupThirdModal = () => {
                 Back
               </button>
               <button
-                type="button"
+                type="submit"
                 className="w-full shadow-lg bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
               >
                 Finish

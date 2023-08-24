@@ -1,10 +1,18 @@
 import { useModal } from "@/hooks";
 import makeAnimated from "react-select/animated";
-
+import { useForm } from "react-hook-form";
 export const useSecondSignup = () => {
-  const { wrapperRef } = useModal();
+  const { wrapperRef, setOpenModal } = useModal();
   const animatedComponents = makeAnimated();
-  const { setOpenModal } = useModal();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  const onSubmit = (data: any) => {
+    setOpenModal("signup3");
+  };
   const customStyles = {
     option: (provided: any) => ({
       ...provided,
@@ -31,5 +39,15 @@ export const useSecondSignup = () => {
     }),
   };
 
-  return { wrapperRef, animatedComponents, setOpenModal, customStyles };
+  return {
+    wrapperRef,
+    animatedComponents,
+    setOpenModal,
+    customStyles,
+    register,
+    onSubmit,
+    handleSubmit,
+    setValue,
+    errors,
+  };
 };

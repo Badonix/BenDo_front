@@ -7,23 +7,27 @@ import {
 import { SignupThirdModal } from "@/components/Landing/SignupThirdModal";
 import { ModalContext } from "@/context";
 import { AnimatePresence, motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 export default function Home() {
   const { openModal } = useContext(ModalContext);
-
+  const [signupData, setSignupData] = useState({});
   return (
     <main className="h-screen">
       <AnimatePresence>
         {openModal === "login" && <LoginModal />}
       </AnimatePresence>
       <AnimatePresence>
-        {openModal === "signup" && <SignupModal />}
+        {openModal === "signup" && <SignupModal signupData={signupData} />}
       </AnimatePresence>
       <AnimatePresence>
-        {openModal === "signup2" && <SignupSecondModal />}
+        {openModal === "signup2" && (
+          <SignupSecondModal signupData={signupData} />
+        )}
       </AnimatePresence>{" "}
       <AnimatePresence>
-        {openModal === "signup3" && <SignupThirdModal />}
+        {openModal === "signup3" && (
+          <SignupThirdModal signupData={signupData} />
+        )}
       </AnimatePresence>
       <LandingNavbar />
       <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3">
