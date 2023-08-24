@@ -23,7 +23,7 @@ export default function Home() {
         {openModal === "signup2" && (
           <SignupSecondModal signupData={signupData} />
         )}
-      </AnimatePresence>
+      </AnimatePresence>{" "}
       <AnimatePresence>
         {openModal === "signup3" && (
           <SignupThirdModal signupData={signupData} />
