@@ -49,7 +49,7 @@ export const SignupThirdModal = () => {
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => setOpenModal("signup")}
+                onClick={() => setOpenModal("signup2")}
                 className="w-full shadow-lg text-cyan-500 font-bold bg-white py-2 rounded-lg hover:bg-slate-200 transition-colors"
               >
                 Back

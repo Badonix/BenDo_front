@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useModal } from "@/hooks";
+import { useSignupModal } from "./useSignupModal";
 export const SignupModal = () => {
   const { wrapperRef, setOpenModal } = useModal();
+  const { handleSubmit } = useSignupModal();
   return (
     <>
       <motion.div
@@ -81,7 +83,10 @@ export const SignupModal = () => {
             </div>
             <button
               type="button"
-              onClick={() => setOpenModal("signup2")}
+              onClick={() => {
+                // setOpenModal("signup2");
+                handleSubmit();
+              }}
               className="bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
             >
               Next
