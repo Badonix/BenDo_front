@@ -2,7 +2,7 @@ import { useModal } from "@/hooks";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useWatch } from "react-hook-form";
-export const useSignupModal = () => {
+export const useSignupModal = (setSignupData: any) => {
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ export const useSignupModal = () => {
   const { password: passwordValue } = useWatch({ control });
   const { setOpenModal } = useModal();
   const onSubmit = async (data: any) => {
-    console.log(data);
+    setSignupData(data);
     setOpenModal("signup2");
   };
   return {

@@ -4,8 +4,10 @@ import { useThirdSignup } from "./useThirdSignup";
 
 export const SignupThirdModal = ({ signupData, setSignupData }: any) => {
   const { wrapperRef, setOpenModal } = useModal();
-  const { register, onSubmit, handleSubmit, errors, preview } =
-    useThirdSignup();
+  const { register, onSubmit, handleSubmit, errors, preview } = useThirdSignup(
+    setSignupData,
+    signupData
+  );
   return (
     <>
       <motion.div

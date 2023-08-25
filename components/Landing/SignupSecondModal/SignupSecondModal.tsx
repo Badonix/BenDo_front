@@ -13,7 +13,7 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
     setOpenModal,
     setValue,
     errors,
-  } = useSecondSignup();
+  } = useSecondSignup(setSignupData);
   return (
     <>
       <motion.div

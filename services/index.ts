@@ -9,6 +9,10 @@ const instance = axios.create({
 });
 
 export const signUp = async (data: any) => {
-  const response = await instance.post("/api/signup", data);
+  const response = await instance.post("/api/signup", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return response;
 };

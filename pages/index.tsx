@@ -11,22 +11,31 @@ import { useContext, useState } from "react";
 export default function Home() {
   const { openModal } = useContext(ModalContext);
   const [signupData, setSignupData] = useState({});
+  console.log(signupData);
   return (
     <main className="h-screen">
       <AnimatePresence>
         {openModal === "login" && <LoginModal />}
       </AnimatePresence>
       <AnimatePresence>
-        {openModal === "signup" && <SignupModal signupData={signupData} />}
+        {openModal === "signup" && (
+          <SignupModal setSignupData={setSignupData} signupData={signupData} />
+        )}
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup2" && (
-          <SignupSecondModal signupData={signupData} />
+          <SignupSecondModal
+            setSignupData={setSignupData}
+            signupData={signupData}
+          />
         )}
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup3" && (
-          <SignupThirdModal signupData={signupData} />
+          <SignupThirdModal
+            setSignupData={setSignupData}
+            signupData={signupData}
+          />
         )}
       </AnimatePresence>
       <LandingNavbar />
