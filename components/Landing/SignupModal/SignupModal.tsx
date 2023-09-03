@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useModal } from "@/hooks";
 import { useSignupModal } from "./useSignupModal";
-export const SignupModal = ({ signupData, setSignupData }: any) => {
+export const SignupModal = ({ setSignupData }: any) => {
   const { wrapperRef } = useModal();
   const {
     passwordValue,
@@ -10,7 +10,7 @@ export const SignupModal = ({ signupData, setSignupData }: any) => {
     register,
     ErrorMessage,
     errors,
-  } = useSignupModal(setSignupData, signupData);
+  } = useSignupModal(setSignupData);
   return (
     <>
       <motion.div
@@ -24,7 +24,7 @@ export const SignupModal = ({ signupData, setSignupData }: any) => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+          transition={{ delay: 0.3, duration: 0.2 }}
           ref={wrapperRef}
           className="p-6 rounded-lg bg-slate-100 flex items-center flex-col justify-center gap-5 shadow-lg"
         >

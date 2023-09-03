@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useWatch } from "react-hook-form";
 import { checkUnique } from "@/services";
-export const useSignupModal = (setSignupData: any, signupData: any) => {
+export const useSignupModal = (setSignupData: any) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     setError,
     control,
-  } = useForm({ defaultValues: signupData });
+  } = useForm();
   const { password: passwordValue } = useWatch({ control });
   const { setOpenModal } = useModal();
   const onSubmit = async (data: any) => {

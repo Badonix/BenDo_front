@@ -10,18 +10,12 @@ export const SignupThirdModal = ({ signupData, setSignupData }: any) => {
   );
   return (
     <>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.3 }}
-        exit={{ scale: 0, opacity: 0 }}
-        className="h-screen w-screen z-20 absolute top-0 left-0 flex sm:items-center items-start sm:py-0 py-12 justify-center backdrop-blur-md"
-      >
+      <motion.div className="h-screen w-screen z-20 absolute top-0 left-0 flex sm:items-center items-start sm:py-0 py-12 justify-center backdrop-blur-md">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+          transition={{ delay: 0.3, duration: 0.2 }}
           ref={wrapperRef}
           className="relative max-w-md w-screen p-6 rounded-lg bg-slate-100 flex items-center flex-col justify-center gap-5 shadow-lg"
         >

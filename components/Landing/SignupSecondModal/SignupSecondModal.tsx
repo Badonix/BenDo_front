@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Select from "react-select";
 import { ProffessionData, SkillsData } from "./skills";
 import { useSecondSignup } from "./useSecondSignup";
-export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
+export const SignupSecondModal = ({ setSignupData }: any) => {
   const {
     handleSubmit,
     onSubmit,
@@ -13,26 +13,16 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
     setOpenModal,
     setValue,
     errors,
-  } = useSecondSignup(setSignupData, signupData);
-  const defaultValues = signupData?.profession
-    ? signupData.profession.map((el: any) => {
-        return { value: el, label: el };
-      })
-    : [];
+  } = useSecondSignup(setSignupData);
+
   return (
     <>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.3 }}
-        exit={{ scale: 0, opacity: 0 }}
-        className="h-screen w-screen z-20 absolute top-0 left-0 flex sm:items-center items-start sm:py-0 py-12 justify-center backdrop-blur-md"
-      >
+      <motion.div className="h-screen w-screen z-20 absolute top-0 left-0 flex sm:items-center items-start sm:py-0 py-12 justify-center backdrop-blur-md">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+          transition={{ duration: 0.2 }}
           ref={wrapperRef}
           className="relative max-w-md w-screen p-6 rounded-lg bg-slate-100 flex items-center flex-col justify-center gap-5 shadow-lg"
         >
@@ -64,10 +54,6 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
                   let assembled: string[] = [];
                   e.forEach((el: any) => assembled.push(el.value));
                   setValue("profession", assembled);
-                }}
-                defaultValue={{
-                  value: "das Developer",
-                  label: "Froasdntend Developer",
                 }}
               />
               <input

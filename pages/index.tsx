@@ -19,15 +19,12 @@ export default function Home() {
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup" && (
-          <SignupModal setSignupData={setSignupData} signupData={signupData} />
+          <SignupModal setSignupData={setSignupData} />
         )}
       </AnimatePresence>
       <AnimatePresence>
         {openModal === "signup2" && (
-          <SignupSecondModal
-            setSignupData={setSignupData}
-            signupData={signupData}
-          />
+          <SignupSecondModal setSignupData={setSignupData} />
         )}
       </AnimatePresence>
       <AnimatePresence>
