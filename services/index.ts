@@ -16,3 +16,11 @@ export const signUp = async (data: any) => {
   });
   return response;
 };
+
+export const checkUnique = async (data: {
+  username: string;
+  email: string;
+}) => {
+  const response = await instance.post("/api/unique", data);
+  return response;
+};

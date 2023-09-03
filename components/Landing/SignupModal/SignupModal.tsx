@@ -10,7 +10,7 @@ export const SignupModal = ({ signupData, setSignupData }: any) => {
     register,
     ErrorMessage,
     errors,
-  } = useSignupModal(setSignupData);
+  } = useSignupModal(setSignupData, signupData);
   return (
     <>
       <motion.div

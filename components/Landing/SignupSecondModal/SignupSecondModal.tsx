@@ -13,7 +13,12 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
     setOpenModal,
     setValue,
     errors,
-  } = useSecondSignup(setSignupData);
+  } = useSecondSignup(setSignupData, signupData);
+  const defaultValues = signupData?.profession
+    ? signupData.profession.map((el: any) => {
+        return { value: el, label: el };
+      })
+    : [];
   return (
     <>
       <motion.div
@@ -60,6 +65,10 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
                   e.forEach((el: any) => assembled.push(el.value));
                   setValue("profession", assembled);
                 }}
+                defaultValue={{
+                  value: "das Developer",
+                  label: "Froasdntend Developer",
+                }}
               />
               <input
                 type="hidden"
@@ -92,13 +101,6 @@ export const SignupSecondModal = ({ signupData, setSignupData }: any) => {
               />
             </div>
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setOpenModal("signup")}
-                className="w-full shadow-lg text-cyan-500 font-bold bg-white py-2 rounded-lg hover:bg-slate-200 transition-colors"
-              >
-                Back
-              </button>
               <button
                 type="submit"
                 className="w-full shadow-lg bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
