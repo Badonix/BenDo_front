@@ -4,10 +4,8 @@ import { useThirdSignup } from "./useThirdSignup";
 
 export const SignupThirdModal = ({ signupData, setSignupData }: any) => {
   const { wrapperRef, setOpenModal } = useModal();
-  const { register, onSubmit, handleSubmit, errors, preview } = useThirdSignup(
-    setSignupData,
-    signupData
-  );
+  const { register, onSubmit, handleSubmit, errors, preview, isLoading } =
+    useThirdSignup(setSignupData, signupData);
   return (
     <>
       <motion.div className="h-screen w-screen z-20 absolute top-0 left-0 flex sm:items-center items-start sm:py-0 py-12 justify-center backdrop-blur-md">
@@ -51,12 +49,25 @@ export const SignupThirdModal = ({ signupData, setSignupData }: any) => {
                 Upload Image
               </label>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 relative">
               <button
+                disabled={isLoading}
                 type="submit"
-                className="w-full shadow-lg bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
+                className="bg-cyan-500 h-10 mt-2 w-full relative font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
               >
-                Finish
+                {isLoading ? (
+                  <div
+                    className="loader absolute top-1/2 left-0  -translate-y-1/2 w-full h-full"
+                    id="loader-6"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                ) : (
+                  "Finish"
+                )}
               </button>
             </div>
           </form>

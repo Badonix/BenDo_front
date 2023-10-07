@@ -160,6 +160,7 @@ export const SignupModal = ({ setSignupData }: any) => {
             </div>
             <div className="relative">
               <button
+                disabled={isLoading}
                 type="submit"
                 className="bg-cyan-500 h-10 mt-2 w-full relative font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
               >

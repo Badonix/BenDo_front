@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 export const useThirdSignup = (setSignupData: any, signupData: any) => {
   const [preview, setPreview] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const {
     register,
@@ -16,6 +17,7 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
     avatar && setPreview(URL.createObjectURL(avatar[0]));
   }, [avatar]);
   const onSubmit = async (data: any) => {
+    setIsLoading(true);
     try {
       const requestData = signupData;
       setSignupData((prev: any) => {
@@ -23,10 +25,11 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
       });
       requestData.avatar = data.avatar[0];
       console.log(requestData);
-      const resp = await signUp(requestData);
-      console.log(resp);
+      await signUp(requestData);
+      setIsLoading(false);
       router.push("/verify-email");
     } catch (e) {
+      setIsLoading(false);
       console.log(e);
     }
   };
@@ -35,6 +38,7 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
     handleSubmit,
     onSubmit,
     errors,
+    isLoading,
     preview,
   };
 };
