@@ -1,8 +1,10 @@
 import { signUp } from "@/services";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 export const useThirdSignup = (setSignupData: any, signupData: any) => {
   const [preview, setPreview] = useState("");
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -23,6 +25,7 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
       console.log(requestData);
       const resp = await signUp(requestData);
       console.log(resp);
+      router.push("/verify-email");
     } catch (e) {
       console.log(e);
     }
