@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ModalContext } from "@/context";
+import { useContext } from "react";
 export const VerifyEmail = () => {
+  const { setOpenModal } = useContext(ModalContext);
   return (
     <div className="w-full h-screen bg-cyan-200 flex items-center justify-center px-2">
-      <Link href="/">
+      <Link onClick={() => setOpenModal("")} href="/">
         <motion.div
           animate={{ scale: 1 }}
           initial={{ scale: 0 }}
@@ -13,7 +16,7 @@ export const VerifyEmail = () => {
             type: "spring",
             stiffness: "300",
           }}
-          className="absolute top-3 left-3 bg-cyan-500 px-3 py-1 text-lg rounded-lg cursor-pointer shadow-lg text-white"
+          className="absolute top-3 left-3 bg-cyan-500 px-3 py-1 text-lg rounded-lg cursor-pointer shadow-lg text-white hover:bg-cyan-600 transition-all"
         >
           Home
         </motion.div>
@@ -25,8 +28,8 @@ export const VerifyEmail = () => {
         className="bg-white shadow-lg rounded-lg w-full gap-4 max-w-xl flex items-center justify-center flex-col py-8 px-1"
       >
         <div className="text-center flex flex-col gap-2">
-          <h2 className="text-2xl">Check Email!</h2>
-          <p className="text-gray-600">
+          <h2 className="sm:text-4xl text-2xl">Check Email!</h2>
+          <p className="text-gray-600 sm:text-xl text-base">
             We have sent you an email verification letter
           </p>
         </div>

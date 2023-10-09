@@ -16,7 +16,7 @@ export const LoginModal = () => {
         exit={{ scale: 0 }}
         transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
         ref={wrapperRef}
-        className="p-6 rounded-lg bg-slate-100 flex items-center flex-col justify-center gap-5 shadow-lg"
+        className="p-6 rounded-lg bg-slate-100 flex items-center flex-col justify-center gap-5  w-full max-w-sm shadow-lg"
       >
         <div className="flex flex-col gap-2">
           <h2 className="text-3xl font-bold text-center">Log In</h2>
@@ -25,7 +25,7 @@ export const LoginModal = () => {
             your <span className="text-cyan-500 font-bold">Journey</span>
           </p>
         </div>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4 w-full">
           <div className="flex flex-col gap-1">
             <label className="text-xl font-bold">Username</label>
             <input

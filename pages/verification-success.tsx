@@ -13,8 +13,10 @@ export const verificationSuccess = () => {
         className="bg-white shadow-lg rounded-lg w-full gap-4 max-w-xl flex items-center justify-center flex-col py-8 px-1"
       >
         <div className="text-center flex flex-col gap-2">
-          <h2 className="text-2xl">Email Verified!</h2>
-          <p className="text-gray-600">Sign in to start your journey!</p>
+          <h2 className="text-2xl sm:text-4xl">Email Verified!</h2>
+          <p className="text-base sm:text-xl text-gray-600">
+            Sign in to start your journey!
+          </p>
         </div>
         <motion.img
           animate={{ scale: 1, y: 0 }}
@@ -26,6 +28,7 @@ export const verificationSuccess = () => {
             delay: 0.3,
           }}
           src="/assets/checkmark.gif"
+          className="scale-110"
         />
         <Link onClick={() => setOpenModal("login")} href="/">
           <motion.div
@@ -37,7 +40,7 @@ export const verificationSuccess = () => {
               type: "spring",
               stiffness: "300",
             }}
-            className="bg-cyan-500 px-3 py-1 text-lg rounded-lg cursor-pointer shadow-lg text-white"
+            className="bg-cyan-500 px-3 py-1 text-lg rounded-lg cursor-pointer shadow-lg text-white hover:bg-cyan-600 transition-all"
           >
             Sign In
           </motion.div>
