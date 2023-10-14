@@ -11,7 +11,7 @@ import { useContext, useState } from "react";
 export default function Home() {
   const { openModal } = useContext(ModalContext);
   const [signupData, setSignupData] = useState({});
-  console.log(signupData);
+  signupData;
   return (
     <main className="h-screen">
       <AnimatePresence>

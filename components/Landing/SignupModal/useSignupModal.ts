@@ -19,7 +19,6 @@ export const useSignupModal = (setSignupData: any) => {
     setIsLoading(true);
     try {
       const res = await checkUnique(data);
-      console.log(res);
       setSignupData(data);
       setIsLoading(false);
       setOpenModal("signup2");

@@ -24,13 +24,11 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
         return { ...prev, avatar: data.avatar };
       });
       requestData.avatar = data.avatar[0];
-      console.log(requestData);
       await signUp(requestData);
       setIsLoading(false);
       router.push("/verify-email");
     } catch (e) {
       setIsLoading(false);
-      console.log(e);
     }
   };
   return {
