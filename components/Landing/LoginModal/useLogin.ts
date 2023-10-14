@@ -16,7 +16,7 @@ const useLogin = () => {
     try {
       verifyCSRF();
       await login(data);
-      router.push("/home");
+      router.push("/choose");
       setIsLoading(false);
     } catch (e: any) {
       e.response.status === 401 &&
