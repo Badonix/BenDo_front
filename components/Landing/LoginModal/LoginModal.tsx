@@ -1,7 +1,10 @@
 import { useModal } from "@/hooks";
 import { motion } from "framer-motion";
+import useLogin from "./useLogin";
+import { ErrorMessage } from "@hookform/error-message";
 export const LoginModal = () => {
   const { wrapperRef } = useModal();
+  const { register, onSubmit, handleSubmit, errors, isLoading } = useLogin();
   return (
     <motion.div
       initial={{ scale: 0 }}
@@ -25,25 +28,70 @@ export const LoginModal = () => {
             your <span className="text-cyan-500 font-bold">Journey</span>
           </p>
         </div>
-        <form className="flex flex-col gap-4 w-full">
+        <form
+          className="flex flex-col gap-4 w-full"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="flex flex-col gap-1">
             <label className="text-xl font-bold">Username</label>
-            <input
-              className="outline-none p-2 shadow-sm rounded-lg text-cyan-600"
-              placeholder="johndoe689"
-              type="text"
-            />
+            <div className="flex flex-col gap-1 relative">
+              <input
+                {...register("login", {
+                  required: "Username field is required",
+                  minLength: { value: 3, message: "At least 3 characters" },
+                  maxLength: {
+                    value: 254,
+                    message: "No more than 254 characters",
+                  },
+                })}
+                className={`outline-none p-2 shadow-sm rounded-lg text-cyan-600 ${
+                  errors["login"] && "text-red-500"
+                }`}
+                placeholder="johndoe689"
+                type="text"
+              />
+              <p className="absolute top-full text-red-500 text-sm right-0">
+                <ErrorMessage errors={errors} name="login" />
+              </p>
+            </div>
           </div>
           <div className="flex flex-col gap-1">
             <label className="text-xl font-bold">Password</label>
-            <input
-              type="password"
-              className="outline-none p-2 shadow-sm rounded-lg text-cyan-600"
-              placeholder="********"
-            />
+            <div className="flex flex-col gap-1 relative">
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: 3,
+                  maxLength: 20,
+                })}
+                type="password"
+                className={`outline-none p-2 shadow-sm rounded-lg text-cyan-600 ${
+                  errors["password"] && "text-red-500"
+                }`}
+                placeholder="********"
+              />
+              <p className="absolute top-full text-red-500 text-sm right-0">
+                <ErrorMessage errors={errors} name="password" />
+              </p>
+            </div>
           </div>
-          <button className="bg-cyan-500 font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors">
-            Log in
+          <button
+            disabled={isLoading}
+            className="bg-cyan-500 h-10 mt-2 w-full relative font-bold text-white py-2 rounded-lg hover:bg-cyan-600 transition-colors"
+          >
+            {isLoading ? (
+              <div
+                className="loader absolute top-1/2 left-0  -translate-y-1/2 w-full h-full"
+                id="loader-6"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            ) : (
+              "Loading"
+            )}
           </button>
         </form>
       </motion.div>

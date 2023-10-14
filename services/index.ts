@@ -24,3 +24,12 @@ export const checkUnique = async (data: {
   const response = await instance.post("/api/unique", data);
   return response;
 };
+
+export const verifyCSRF = async () => {
+  await instance.get("/sanctum/csrf-cookie");
+};
+
+export const login = async (data: any) => {
+  const response = await instance.post("/api/login", data);
+  return response;
+};
