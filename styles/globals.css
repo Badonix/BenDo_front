@@ -7,9 +7,16 @@
 * {
   font-family: "Ubuntu", sans-serif;
 }
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
 body {
-  /* bird animation causing overflow-y on landing, temporary fix */
   overflow: hidden;
   background-color: rgb(226, 225, 223);
 }
@@ -48,6 +55,59 @@ background-size: 35px 35px; */
 
 #loader-6 span:nth-child(4) {
   animation: grow 1s ease-in-out 0.45s infinite;
+}
+@media (min-width: 1000px) {
+  .bird {
+    transition: 0.3s;
+    opacity: 0;
+  }
+  .left-choose button,
+  .right-choose button {
+    opacity: 0.25;
+  }
+  .left-choose p,
+  .left-choose h2,
+  .right-choose p,
+  .right-choose h2 {
+    transition: 0.3s;
+  }
+  .left-choose p,
+  .left-choose h2,
+  .right-choose p,
+  .right-choose h2 {
+    opacity: 0.5;
+  }
+  .left-choose:hover > button,
+  .right-choose:hover > button {
+    opacity: 1;
+  }
+  .left-choose:hover .bird,
+  .right-choose:hover .bird {
+    opacity: 1;
+  }
+
+  .left-choose:hover .bird-left {
+    rotate: 30deg;
+  }
+
+  .right-choose:hover .bird-right {
+    rotate: -30deg;
+  }
+  .left-choose:hover p,
+  .left-choose:hover h2,
+  .right-choose:hover p,
+  .right-choose:hover h2 {
+    opacity: 1;
+    scale: 1.1;
+  }
+}
+.left-choose button:hover,
+.right-choose button:hover {
+  scale: 1.1;
+}
+
+button {
+  transition: 0.3s;
 }
 
 @keyframes grow {

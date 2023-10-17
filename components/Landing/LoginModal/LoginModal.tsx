@@ -90,7 +90,7 @@ export const LoginModal = () => {
                 <span></span>
               </div>
             ) : (
-              "Loading"
+              "Log In"
             )}
           </button>
         </form>
