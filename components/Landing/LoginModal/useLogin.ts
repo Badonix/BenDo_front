@@ -14,7 +14,7 @@ const useLogin = () => {
   const onSubmit = async (data: any) => {
     setIsLoading(true);
     try {
-      verifyCSRF();
+      await verifyCSRF();
       await login(data);
       router.push("/choose");
       setIsLoading(false);

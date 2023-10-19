@@ -16,8 +16,43 @@ img {
   -ms-user-select: none;
 }
 
+.browse_body {
+  background-color: rgba(4, 0, 255, 0.05);
+  background-image: repeating-linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 0, 0, 0.05) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.05) 75%,
+      rgba(0, 0, 0, 0.05)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.05) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.05) 75%,
+      rgba(0, 0, 0, 0.05)
+    );
+  background-size: 70px 120px;
+}
+
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: rgb(226, 225, 223);
 }
 

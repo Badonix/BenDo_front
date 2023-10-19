@@ -1,15 +1,20 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 export const Choose = () => {
+  const router = useRouter();
   return (
-    <section className="text-center w-screen h-screen md:flex-row flex-col flex">
+    <section className="overflow-hidden text-center w-screen h-screen md:flex-row flex-col flex">
       <motion.div
         initial={{ y: "-100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 1, type: "spring", stiffness: "300" }}
-        className="relative left-choose flex-col flex items-center justify-center shadow-xl border border-zinc-300 w-full h-full bg-cyan-400 px-3 gap-8"
+        className="overflow-hidden relative left-choose flex-col flex items-center justify-center shadow-xl border border-zinc-300 w-full h-full bg-cyan-400 px-3 gap-8"
       >
-        <img
+        <motion.img
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 3 }}
           src="/assets/fat_bird.png"
           className="hidden lg:block -z-10  bird bird-left absolute bottom-0 left-0"
         />
@@ -27,6 +32,7 @@ export const Choose = () => {
           </p>
         </motion.div>
         <motion.button
+          onClick={() => router.push("/match")}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 2 }}
@@ -44,9 +50,12 @@ export const Choose = () => {
           type: "spring",
           stiffness: "300",
         }}
-        className="relative right-choose flex-col flex items-center justify-center shadow-xl border border-zinc-300 w-full h-full bg-blue-500 px-3 gap-8"
+        className="overflow-hidden relative right-choose flex-col flex items-center justify-center shadow-xl border border-zinc-300 w-full h-full bg-blue-500 px-3 gap-8"
       >
-        <img
+        <motion.img
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 3 }}
           src="/assets/fat_bird.png"
           className="hidden lg:block -z-10  bird bird-right absolute bottom-0 right-0"
         />
@@ -64,6 +73,7 @@ export const Choose = () => {
           </p>
         </motion.div>
         <motion.button
+          onClick={() => router.push("/browse")}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 2.5 }}
