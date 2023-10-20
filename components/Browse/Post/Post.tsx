@@ -1,8 +1,13 @@
 import { Comment, Like, Send } from "@/components";
-
-export const Post = () => {
+import { motion } from "framer-motion";
+export const Post = ({ num }: { num: number }) => {
   return (
-    <div className="rounded-2xl bg-white w-full max-w-4xl">
+    <motion.div
+      initial={{ x: 500 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 2 }}
+      className="rounded-2xl bg-white w-full max-w-4xl"
+    >
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-2">
           <img
@@ -11,7 +16,7 @@ export const Post = () => {
           />
           <p className="text-bold">George Miqautadze</p>
         </div>
-        <p className="text-cyan-500">5 minutes ago</p>
+        <p className="text-cyan-500">{num} minutes ago</p>
       </div>
       <hr></hr>
       <div className="p-2 max-h-36 overflow-y-scroll">
@@ -46,7 +51,7 @@ export const Post = () => {
           <p>Message</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
