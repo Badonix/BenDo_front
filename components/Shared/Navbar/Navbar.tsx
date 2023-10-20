@@ -6,7 +6,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1, type: "spring", stiffness: 300 }}
-      className="z-10 absolute top-0 flex translate-y-7 items-center justify-between px-3 py-3 bg-navbar-pattern w-full bg-cyan-500 shadow-lg"
+      className="z-10 fixed top-0 flex translate-y-7 items-center justify-between px-3 py-3 bg-navbar-pattern w-full bg-cyan-500 shadow-lg"
     >
       <motion.div
         initial={{ x: -200, rotate: 90 }}

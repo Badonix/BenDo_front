@@ -50,10 +50,19 @@ img {
     );
   background-size: 70px 120px;
 }
-
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
 body {
   overflow-x: hidden;
   background-color: rgb(226, 225, 223);
+}
+.no-overflow {
+  overflow: hidden;
 }
 
 /* background-image: radial-gradient(#999 5%, transparent 0);

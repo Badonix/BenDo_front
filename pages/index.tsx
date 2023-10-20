@@ -7,13 +7,19 @@ import {
 import { SignupThirdModal } from "@/components/Landing/SignupThirdModal";
 import { ModalContext } from "@/context";
 import { AnimatePresence, motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 export default function Home() {
   const { openModal } = useContext(ModalContext);
   const [signupData, setSignupData] = useState({});
-  signupData;
+
+  useEffect(() => {
+    document.body.classList.add("no-overflow");
+    return () => {
+      document.body.classList.remove("no-overflow");
+    };
+  }, []);
   return (
-    <main className="h-screen overflow-hidden">
+    <main className="h-screen">
       <AnimatePresence>
         {openModal === "login" && <LoginModal />}
       </AnimatePresence>
@@ -36,8 +42,8 @@ export default function Home() {
         )}
       </AnimatePresence>
       <LandingNavbar />
-      <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3 overflow-hidden">
-        <div className="flex items-center gap-3 flex-wrap text-center justify-center overflow-hidden">
+      <div className="flex h-full -translate-y-12 flex-col items-center justify-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap text-center justify-center">
           <motion.p
             initial={{ y: -50, opacity: 0 }}
             transition={{ delay: 2, duration: 1 }}
@@ -55,7 +61,7 @@ export default function Home() {
             BenDo
           </motion.h1>
         </div>
-        <div className="overflow-hidden">
+        <div>
           <motion.p
             initial={{ y: -50, opacity: 0 }}
             transition={{ delay: 3.5, duration: 1 }}
@@ -94,7 +100,7 @@ export default function Home() {
           duration: 1,
         }}
         src="/assets/fat_bird.png"
-        className="overflow-hidden sm:block hidden absolute right-0 bottom-0 -z-10"
+        className="sm:block hidden absolute right-0 bottom-0 -z-10"
       />
       <motion.img
         initial={{ x: -500 }}
@@ -104,7 +110,7 @@ export default function Home() {
           duration: 1,
         }}
         src="/assets/landing_frame.png"
-        className="overflow-hidden sm:block hidden -z-10 absolute left-0 top-1/4 h-1/2"
+        className="sm:block hidden -z-10 absolute left-0 top-1/4 h-1/2"
       />
     </main>
   );
