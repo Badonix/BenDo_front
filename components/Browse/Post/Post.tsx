@@ -1,11 +1,21 @@
-import { Comment, Like, Send } from "@/components";
+import { Comment, ExpandableText, Like, Send } from "@/components";
 import { motion } from "framer-motion";
 export const Post = ({ num }: { num: number }) => {
+  const text = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eos
+  debitis accusamus animi optio ducimus atque voluptas nostrum, dolorum
+  quo ad, perspiciatis eveniet ipsum quos necessitatibus nam? Enim, hic
+  consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  Dolores eos debitis accusamus animi optio ducimus atque voluptas
+  nostrum, dolorum quo ad, perspiciatis eveniet ipsum quos
+  necessitatibus nam? Enim, hic consectetur. Lorem ipsum dolor sit amet
+  consectetur adipisicing elit. Dolores eos debitis accusamus animi
+  optio ducimus atque voluptas nostrum, dolorum quo ad, perspiciatis
+  eveniet ipsum quos necessitatibus nam? Enim, hic consectetur.`;
   return (
     <motion.div
-      initial={{ x: 500 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 2 }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 1 }}
       className="rounded-2xl bg-white w-full max-w-4xl"
     >
       <div className="flex items-center justify-between px-4 py-2">
@@ -19,19 +29,8 @@ export const Post = ({ num }: { num: number }) => {
         <p className="text-cyan-500">{num} minutes ago</p>
       </div>
       <hr></hr>
-      <div className="p-2 max-h-36 overflow-y-scroll">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eos
-          debitis accusamus animi optio ducimus atque voluptas nostrum, dolorum
-          quo ad, perspiciatis eveniet ipsum quos necessitatibus nam? Enim, hic
-          consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Dolores eos debitis accusamus animi optio ducimus atque voluptas
-          nostrum, dolorum quo ad, perspiciatis eveniet ipsum quos
-          necessitatibus nam? Enim, hic consectetur. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Dolores eos debitis accusamus animi
-          optio ducimus atque voluptas nostrum, dolorum quo ad, perspiciatis
-          eveniet ipsum quos necessitatibus nam? Enim, hic consectetur.
-        </p>
+      <div className="p-2">
+        <ExpandableText maxChars={300} text={text} />
       </div>
       <img
         className="w-full"
