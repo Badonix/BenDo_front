@@ -64,6 +64,27 @@ body {
 .no-overflow {
   overflow: hidden;
 }
+.reaction {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.reaction .reaction_text {
+  visibility: hidden;
+  background-color: white;
+  color: #7e7e7e;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: -80%;
+  font-size: 13px;
+}
+
+.reaction:hover .reaction_text {
+  visibility: visible;
+}
 
 /* background-image: radial-gradient(#999 5%, transparent 0);
 background-size: 35px 35px; */
