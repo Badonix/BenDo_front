@@ -14,7 +14,9 @@ export const useThirdSignup = (setSignupData: any, signupData: any) => {
   } = useForm();
   const { avatar } = useWatch({ control });
   useEffect(() => {
-    avatar && setPreview(URL.createObjectURL(avatar[0]));
+    if (avatar) {
+      avatar[0] && setPreview(URL.createObjectURL(avatar[0]));
+    }
   }, [avatar]);
   const onSubmit = async (data: any) => {
     setIsLoading(true);
