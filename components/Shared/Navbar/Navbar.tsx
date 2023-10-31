@@ -38,7 +38,7 @@ const Navbar = () => {
             Choose
           </motion.button>
         </Link>
-        <Link href="/choose">
+        <Link href="/">
           <motion.button
             initial={{ y: -100 }}
             animate={{ y: 0 }}
