@@ -30,7 +30,7 @@ export const MakePostModal = () => {
             id="content"
             placeholder="So I'm looking for..."
             {...register("content")}
-            className="w-full resize-x-none outline-none shadow-lg p-2 rounded-md max-h-40"
+            className="w-full resize-x-none mb-2 outline-none shadow-lg p-2 rounded-md max-h-40"
           ></textarea>
           <label htmlFor="image" className="w-full ">
             <div className="w-full rounded-md shadow-lg text-xl text-center text-white  bg-cyan-500 py-2 hover:bg-cyan-600 cursor-pointer transition-all">
